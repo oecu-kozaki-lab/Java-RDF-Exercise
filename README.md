@@ -1,4 +1,4 @@
-# Java-RDF-Exercise
+# Java/RDFプログラミング演習
 JavaによるRDFを処理するプログラムの演習課題です．
 
 ## 1. Javaプログラミングの基礎

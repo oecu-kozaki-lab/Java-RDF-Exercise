@@ -17,7 +17,9 @@
 
 ## 演習課題1-3.　ファイルの入出力
 (1)　[StarWars.txt](https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/StarWars.txt) を
-読み込み，行番号を付与したファイルを出力するプログラムを書きなさい．
+読み込み，行番号を付与したファイルを出力するプログラムを書きなさい．  
+ヒント１：ファイル読み込みには**BufferedReaderクラス** の**readLine()メソッド** を使うと良い．  
+ヒント２：ファイルへの書き込みには**BufferedWriterクラス** を使うと良い．
 
 (2)　[StarWars.txt](https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/StarWars.txt) を
 読み込み，「単語の出現回数」を数え，その結果を出力するプログラムを書きなさい．

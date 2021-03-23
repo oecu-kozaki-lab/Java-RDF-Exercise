@@ -12,7 +12,8 @@
 ヒント：**String.indexOf("...")** を使うと良い．
 
 (2)「A LONG TIME AGO IN A GALAXY FAR, FAR AWAY . . . .」という文字列を，
-半角スペース「 」で区切り，「1行に1単語ずつ」標準出力に出力するプログラムを書きなさい．
+半角スペース「 」で区切り，「1行に1単語ずつ」標準出力に出力するプログラムを書きなさい．  
+ヒント：**String.spilit(" ")** を使うと良い．
 
 ## 演習課題1-3.　ファイルの入出力
 (1)　[StarWars.txt](https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/StarWars.txt) を

@@ -4,7 +4,7 @@
 
 (2) サンプルプログラム「readRDF.java[https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/jena_sample/src/]」を実行して動作を確かめなさい．
 
-## 演習課題1-2.　RDFの検索
+## 演習課題1-2.　RDFの検索【読み込んだファイルを対象にする】
 (1) searchRDF.javaを実行して，JenaのAPIを使った検索の方法を確認しなさい．
 
 (2) searchRDFusingSPARQL.javaを実行して，JenaにおけるSPARQLを使った検索の方法を確認しなさい．

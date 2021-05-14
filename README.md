@@ -10,3 +10,4 @@ https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/JenaBasicEx.md
 ## 3. 大規模なRDFファイルの処理
 準備中
 
+修正テスト

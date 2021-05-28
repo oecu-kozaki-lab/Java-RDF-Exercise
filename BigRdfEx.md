@@ -1,5 +1,5 @@
 # 大規模なRDFの扱い
-## 演習課題3-1.　Jenaのセットアップ
+## 演習課題3-1.　プログラムを用いたSPARQLクエリ生成
 (1) [pref.txt](https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/pref.txt) を読み込み，
 Wikidataから，各キーワード（都道府県名）とラベルが一致するリソースのIRIを取得するプログラムを作成しなさい．
   

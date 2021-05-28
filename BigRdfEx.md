@@ -23,4 +23,4 @@ where{
 (2)N-Triple形式のRDFファイル[NEDO_pj_sample.nt](https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/NEDO_pj_sample.nt) のトリプルにおいて「主語」に現れるリソースの一覧を
 出力するプログラムを作りなさい．  
   
-(3)問題作成中... 
+(3)問題作成中... 更新テスト

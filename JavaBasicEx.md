@@ -23,3 +23,4 @@
 
 (2)　[StarWars.txt](https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/StarWars.txt) を
 読み込み，「単語の出現回数」を数え，その結果を出力するプログラムを書きなさい．
+ヒント：単語の出現回数を管理するには**HaspMapクラス**を使うとよい．

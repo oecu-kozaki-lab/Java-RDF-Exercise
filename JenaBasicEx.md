@@ -1,8 +1,10 @@
 # Jenaプログラミングの基礎
+サンプルプログラムは，こちらのレポジトリ[JavaRDFsample2022](https://github.com/oecu-kozaki-lab/JavaRDFsample2022)を参照する．  
+
 ## 演習課題2-1.　Jenaのセットアップ
 (1) https://jena.apache.org/[https://jena.apache.org/] からApache Jenaをダウンロードして，Eclipseのプロジェクトで利用できるように設定しなさい．
 
-(2) サンプルプログラム「readRDF.java[https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/jena_sample/src/] 」を実行して動作を確かめなさい．
+(2) サンプルプログラム「readRDF.java[https://github.com/oecu-kozaki-lab/JavaRDFsample2022/tree/main/src] 」を実行して動作を確かめなさい．
 
 ## 演習課題2-2.　RDFの検索【読み込んだファイルを対象にする】
 (1) searchRDF.javaを実行して，JenaのAPIを使った検索の方法を確認しなさい．

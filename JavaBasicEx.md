@@ -1,8 +1,18 @@
 # Javaプログラミングの基礎
+参考サイト
+- [Java入門](https://www.javadrive.jp/start/)
+- [【2025】エクリプス（Eclipse）を使ったJava開発の始め方！](https://ai-kenkyujo.com/programming/language/eclipse-java/)
+  
 ## 演習課題1-1.　開発環境Eclipseのセットアップ
-(0) Eclipseのセットアップを行いなさい．  
+### (0) Eclipseのセットアップ  
+日本語化パッケージ適用済みの**Pleiades All in One**を下記の手順でインストールしなさい
+1. https://willbrains.jp/ から**Eclipse 2025（最新版）**を選択
+2. Full Editonの「Java」をダウンロード
+3. ダウンロードしたファイルを実行し，インストール先のフォルダ（ドライブの直下を推奨）指定してインストール
 
-(1) 演習用のプロジェクトを作成し，以下のサンプルプログラム（Ex1_1_1.java）を作成し，実行しなさい．  
+  
+### (1) プロジェクト・サンプルプログラムの作成・実行
+演習用のプロジェクトを作成し，以下のサンプルプログラム（Ex1_1_1.java）を作成し，実行しなさい．  
 ```
 public class Ex1_1_1 {
 

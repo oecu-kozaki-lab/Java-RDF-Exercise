@@ -57,7 +57,7 @@ public class Ex1_1_1 {
 1. 「Ex1_2_2」というクラスを新規で追加し「Ex1_2_2.java」というファイルを作成
 2. 下記のヒントを参考にプログラムを作成する
 
-ヒント：**String.spilit(" ")** を使うと良い．（[参考サイト](https://www.javadrive.jp/start/string/index20.html))
+ヒント：**String.split(" ")** を使うと良い．（[参考サイト](https://www.javadrive.jp/start/string/index20.html))
 
 ## 演習課題1-3.　ファイルの入出力
 ### (1) ファイルの読み込み，行番号を付与して保存

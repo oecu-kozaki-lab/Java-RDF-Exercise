@@ -1,5 +1,4 @@
 # Jenaプログラミングの基礎
-サンプルプログラムは，こちらのレポジトリ[JavaRDFsample2022](https://github.com/oecu-kozaki-lab/JavaRDFsample2022)を参照する．  
 
 ## 演習課題2-1.　Jenaのセットアップ
 ### (1) Apache Jenaのダウンロード・利用のための設定

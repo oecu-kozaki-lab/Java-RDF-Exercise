@@ -37,7 +37,12 @@ public class searchRDFusingSPARQL {
  * */
 
 		//クエリの作成
-		String queryStr = "select * where{?s ?p ?o.}LIMIT 100";
+		String queryStr = """
+							select * 
+							where{
+								?s ?p ?o.
+							}LIMIT 100
+						""";
         Query query = QueryFactory.create(queryStr);
 
         //クエリの実行

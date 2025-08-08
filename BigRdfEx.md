@@ -4,7 +4,8 @@
 Wikidataから，各キーワード（都道府県名）とラベルが一致するリソースのIRIを取得するプログラムを作成しなさい．
   
 ヒント：例えば「大阪」の場合は下記のようなクエリで取得できる．このようなクエリを自動生成してJenaで結果を取得するプログラムを作ればよい．
-```PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+```
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 select ?s
 where{
 ?s rdfs:label "大阪"@ja.

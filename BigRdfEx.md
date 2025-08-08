@@ -23,4 +23,14 @@ where{
 (2)N-Triple形式のRDFファイル[NEDO_pj_sample.nt](https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/NEDO_pj_sample.nt) のトリプルにおいて「主語」に現れるリソースの一覧を
 出力するプログラムを作りなさい．  
   
-(3)問題作成中... 更新テスト
+(3)[Wikidataのダンプ公開ページ](https://www.wikidata.org/wiki/Wikidata:Database_download/ja)から，N-Triple形式のダンプファイルのダウンロード方法を確認しなさい．  
+- 上記のページにある「RDFダンプ」を確認する
+- N-Triple形式のダンプには， **all** と **truthyダンプ** があるので，それぞれの最新版のダウンロード先を確認する
+- ※ファイルサイズが非常に大きいので，実際のダウンロードは，必要な時に外部SDDなど環境を整えてから行うこと
+
+## 演習課題3-3.　複数のSPARQLエンドポイントを統合した検索
+以下の手順で，WikidataとDBpedia Japaneseを統合した検索を行うプログラムを作成しなさい．
+
+(1)WikidataのSPARQLエンドポイントから「国の『日本語ラベル』の一覧」を取得し，ファイルに保存するプログラムを作成しなさい．
+
+(2)(1)のプログラムで保存したファイルから「国名」を読み込んで，「その国に関する情報（内容は任意）」をDBpedia JapaneseのSPARQLエンドポイントから取得するプログラムを作成しなさい．

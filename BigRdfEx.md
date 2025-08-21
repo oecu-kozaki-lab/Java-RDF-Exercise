@@ -17,21 +17,25 @@ where{
   
 (3)(2)のプログラムを改良し，各リソースのIRIに加えて，日本語および英語のラベルを取得するプログラムを作りなさい．
 
-## 演習課題3-2.　N-Triple形式のRDFの処理
-(1)N-Triple形式のRDFファイル[NEDO_pj_sample.nt](https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/NEDO_pj_sample.zip) を読み込み，
-述語が<http://www.w3.org/2000/01/rdf-schema#label>のトリプルのみを取り出して出力するプログラムを作りなさい．  
-  
-(2)N-Triple形式のRDFファイル[NEDO_pj_sample.nt](https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/NEDO_pj_sample.nt) のトリプルにおいて「主語」に現れるリソースの一覧を
-出力するプログラムを作りなさい．  
-  
-(3)[Wikidataのダンプ公開ページ](https://www.wikidata.org/wiki/Wikidata:Database_download/ja)から，N-Triple形式のダンプファイルのダウンロード方法を確認しなさい．  
-- 上記のページにある「RDFダンプ」を確認する
-- N-Triple形式のダンプには， **all** と **truthyダンプ** があるので，それぞれの最新版のダウンロード先を確認する
-- ※ファイルサイズが非常に大きいので，実際のダウンロードは，必要な時に外部SDDなど環境を整えてから行うこと
-
-## 演習課題3-3.　複数のSPARQLエンドポイントを統合した検索
+## 演習課題3-2.　複数のSPARQLエンドポイントを統合した検索
 以下の手順で，WikidataとDBpedia Japaneseを統合した検索を行うプログラムを作成しなさい．
 
 (1)WikidataのSPARQLエンドポイントから「国の『日本語ラベル』の一覧」を取得し，ファイルに保存するプログラムを作成しなさい．
 
 (2)(1)のプログラムで保存したファイルから「国名」を読み込んで，「その国に関する情報（内容は任意）」をDBpedia JapaneseのSPARQLエンドポイントから取得するプログラムを作成しなさい．
+
+## 演習課題3-3.　N-Triple形式のRDFの処理
+(1)N-Triple形式のRDFファイル **Q1490** (東京都)を[http://www.wikidata.org/entity/Q1490.nt](http://www.wikidata.org/entity/Q1490.nt) からダウンロードして，テキストエディタで開いて中身を確認しなさい．　　
+参考： **Q1490** の部分を任意のQIDに変更すると，そのエンティティのデータのダウンロードができる．
+
+(2)(1)でダウンロードしたN-Triple形式のRDFファイル **Q1490.nt** を読み込み，以下の処理を行うプログラムを作りなさい．  
+- (a) 述語が<http://www.w3.org/2000/01/rdf-schema#label>のトリプルのみを取り出して出力する．  
+エンコードされた2バイト文字（例：`"\u6771\u4EAC\u90FD"@ja`）は「そのまま」出力すればよい．
+- (b) Q1490のラベル（<http://www.w3.org/2000/01/rdf-schema#label>）と別名（<http://www.w3.org/2004/02/skos/core#altLabel>）出力する．  
+その際，エンコードされた2バイト文字がデコードすること．
+   
+(3)[Wikidataのダンプ公開ページ](https://www.wikidata.org/wiki/Wikidata:Database_download/ja)から，N-Triple形式のダンプファイルのダウンロード方法を確認しなさい．  
+- 上記のページにある「RDFダンプ」を確認する
+- N-Triple形式のダンプには， **all** と **truthyダンプ** があるので，それぞれの最新版のダウンロード先を確認する
+- ※ファイルサイズが非常に大きいので，実際のダウンロードは，必要な時に外部SDDなど環境を整えてから行うこと
+

@@ -25,7 +25,7 @@ where{
 (2)(1)のプログラムで保存したファイルから「国名」を読み込んで，「その国に関する情報（内容は任意）」をDBpedia JapaneseのSPARQLエンドポイントから取得するプログラムを作成しなさい．
 
 ## 演習課題3-3.　N-Triple形式のRDFの処理
-(1)N-Triple形式のRDFファイル **Q1490** (東京都)を[http://www.wikidata.org/entity/Q1490.nt](http://www.wikidata.org/entity/Q1490.nt) からダウンロードして，テキストエディタで開いて中身を確認しなさい．　　
+(1)N-Triple形式のRDFファイル **Q1490** (東京都)を[http://www.wikidata.org/entity/Q1490.nt](http://www.wikidata.org/entity/Q1490.nt) からダウンロードして，テキストエディタで開いて中身を確認しなさい．  
 参考： **Q1490** の部分を任意のQIDに変更すると，そのエンティティのデータのダウンロードができる．
 
 (2)(1)でダウンロードしたN-Triple形式のRDFファイル **Q1490.nt** を読み込み，以下の処理を行うプログラムを作りなさい．  

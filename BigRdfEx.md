@@ -67,7 +67,28 @@ wd:Q1490	別名	"Tōkyō"@en
 wd:Q1490	別名	"Tôkyô"@en
   .
   .
-```   
+```
+ヒント１：読み込んだN-Tripleをsplit(" ")で「主語」,「述語」,「目的語」に分割して処理するとよい.  
+ヒント２：「2バイト文字のデコード」には下記の関数を定義して使えばよい．  
+```
+public static String decodeFromUnicode(String input) {
+    StringBuilder sb = new StringBuilder();
+    int i = 0;
+    while (i < input.length()) {
+        if (input.startsWith("\\u", i)) {
+            String hex = input.substring(i + 2, i + 6);
+            char c = (char) Integer.parseInt(hex, 16);
+            sb.append(c);
+            i += 6;
+        } else {
+            sb.append(input.charAt(i));
+            i++;
+        }
+    }
+    return sb.toString();
+}
+```
+
 (3)[Wikidataのダンプ公開ページ](https://www.wikidata.org/wiki/Wikidata:Database_download/ja)から，N-Triple形式のダンプファイルのダウンロード方法を確認しなさい．  
 - 上記のページにある「RDFダンプ」を確認する
 - N-Triple形式のダンプには， **all** と **truthyダンプ** があるので，それぞれの最新版のダウンロード先を確認する

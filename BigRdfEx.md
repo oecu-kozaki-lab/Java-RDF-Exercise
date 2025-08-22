@@ -52,8 +52,22 @@ where{
 - (a) 述語が<http://www.w3.org/2000/01/rdf-schema#label>のトリプルのみを取り出して出力する．  
 エンコードされた2バイト文字（例：`"\u6771\u4EAC\u90FD"@ja`）は「そのまま」出力すればよい．
 - (b) Q1490のラベル（<http://www.w3.org/2000/01/rdf-schema#label>）と別名（<http://www.w3.org/2004/02/skos/core#altLabel>）出力する．  
-その際，エンコードされた2バイト文字はデコードすること．
-   
+その際，出力結果は下記のような主語のQIDとラベル・別名のいずれであるかを示したTSV形式とし，エンコードされた2バイト文字はデコードすること．
+```
+wd:Q1490	ラベル	"Tokyo"@en
+wd:Q1490	ラベル	"Tokyo"@fr
+wd:Q1490	ラベル	"tokios."@jbo
+wd:Q1490	ラベル	"Токіё"@be-tarask
+wd:Q1490	ラベル	"Tokyo"@it
+wd:Q1490	ラベル	"東京都"@ja
+wd:Q1490	ラベル	"Tokio"@de
+  .
+  .
+wd:Q1490	別名	"Tōkyō"@en
+wd:Q1490	別名	"Tôkyô"@en
+  .
+  .
+```   
 (3)[Wikidataのダンプ公開ページ](https://www.wikidata.org/wiki/Wikidata:Database_download/ja)から，N-Triple形式のダンプファイルのダウンロード方法を確認しなさい．  
 - 上記のページにある「RDFダンプ」を確認する
 - N-Triple形式のダンプには， **all** と **truthyダンプ** があるので，それぞれの最新版のダウンロード先を確認する

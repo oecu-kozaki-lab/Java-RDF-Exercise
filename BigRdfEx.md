@@ -41,7 +41,8 @@ where{
 
 (1)WikidataのSPARQLエンドポイントから「国の『日本語ラベル』の一覧」を取得し，ファイルに保存するプログラムを作成しなさい．
 
-(2)(1)のプログラムで保存したファイルから「国名」を読み込んで，「その国に関する情報（内容は任意）」をDBpedia JapaneseのSPARQLエンドポイントから取得するプログラムを作成しなさい．
+(2)(1)のプログラムで保存したファイルから「国名」を読み込んで，DBpedia JapaneseのSPARQLエンドポイントから，「その国のDBpedia Japanese上でのIRI」を取得し，
+「そのIRIを主語とするすべてのトリプル」を取得するプログラムを作成しなさい．
 
 ## 演習課題3-3.　N-Triple形式のRDFの処理
 (1)N-Triple形式のRDFファイル **Q1490** (東京都)を[http://www.wikidata.org/entity/Q1490.nt](http://www.wikidata.org/entity/Q1490.nt) からダウンロードして，テキストエディタで開いて中身を確認しなさい．  

@@ -68,7 +68,8 @@ wd:Q1490	別名	"Tôkyô"@en
   .
   .
 ```
-ヒント１：読み込んだN-Tripleをsplit(" ")で「主語」,「述語」,「目的語」に分割して処理するとよい.  
+ヒント１：読み込んだN-Tripleをsplit(" ")で「主語」,「述語」,「目的語」に分割して処理するとよい.    
+　→ファイルの読み込みは[「演習課題1-3.」](JavaBasicEx.md#%E6%BC%94%E7%BF%92%E8%AA%B2%E9%A1%8C1-3%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%85%A5%E5%87%BA%E5%8A%9B) を参照   
 ヒント２：「2バイト文字のデコード」には下記の関数を定義して使えばよい．  
 ```
 public static String decodeFromUnicode(String input) {

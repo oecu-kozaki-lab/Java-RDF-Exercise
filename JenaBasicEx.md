@@ -28,10 +28,13 @@ Apache Jena Commands* から **apache-jena-5.X.X.zip** (X.Xはバージョン番
 (3) (1),(2)を修正して，自分が作ったクエリでの検索を実行しなさい．
 
 ## 演習課題2-3.　RDFの検索【SPARQLエンドポイントを対象にする】
-(1) [searchRDFfromSPARQLendpoint.java](jena_sample/src/searchRDFfromSPARQLendpoint.java)を実行して，外部のSPARQLエンドポイント（この例ではWikidata）を使った検索の方法を確認しなさい．  
+(1) [searchRDFfromSPARQLendpoint.java](jena_sample/src/searchRDFfromSPARQLendpoint.java)※を実行して，外部のSPARQLエンドポイント（この例ではWikidata）を使った検索の方法を確認しなさい．  
 また，以下の設定を切り替えて動作を確認しなさい.  
 - 出力形式の切替（Table/CSV）
-- 出力先の切替（標準出力/ファイル保存）
+- 出力先の切替（標準出力/ファイル保存）  
+
+※このサンプルプログラムで使用しているWikidataのSPARQLエンドポイントを使用すると，403エラーが発生する現象が見られたため（現時点では解消済み），プログラムに対処方法のコメントを追記しました．  
+（エラー原因の詳細と対応方法については，[こちらの記事](https://qiita.com/koujikozaki/items/fba35bf469dc0331128b)を参照してください．）  
 
 (2) (1)を修正して，自分が作ったクエリでの検索を実行しなさい．
 

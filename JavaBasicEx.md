@@ -50,7 +50,7 @@ public class Ex1_1_1 {
 
 ヒント１：処理対象の文字列は`String data = "KNOWLEDGE IS IMPORTANT. SHARING KNOWLEDGE CREATES NEW KNOWLEDGE.";`といった変数で定義する  
 ヒント２：**String.indexOf("KNOWLEDGE")** を使うと，"KNOWLEDGE"が何文字目に出現するかを得られる．  
-ヒント３：**String.indexOf("KNOWLEDGE", n)** とすると， **n 文字目以降** で，為"FAR"が何文字目に出現するかを得られる．  
+ヒント３：**String.indexOf("KNOWLEDGE", n)** とすると， **n 文字目以降** で，為"KNOWLEDGE"が何文字目に出現するかを得られる．  
 （[参考サイト](https://www.javadrive.jp/start/string/index18.html)）
 
 ### (2) 文字列の分割

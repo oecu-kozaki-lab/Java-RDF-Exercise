@@ -98,5 +98,15 @@ try{
 ### (2) 読み込んだファイルの解析
 [StarWars.txt](https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/StarWars.txt) を
 読み込み，「単語の出現回数」を数え，その結果を出力するプログラムを書きなさい．  
-
-ヒント：単語の出現回数を管理するには**HaspMapクラス**を使うとよい．（[参考サイト](https://www.javadrive.jp/start/collection/index3.html))
+ 
+ヒント１：単語の出現回数を管理するには **HaspMapクラス** を使うとよい．（[参考サイト](https://www.javadrive.jp/start/collection/index3.html))  
+ヒント２：`Map<String, Integer> map = new HashMap<>();`といたHashMapを用意して  
+ (1) 初めて出てきた単語は` map.put(words[i], 1);`で登録  
+ (2) 2回目以降は`map.put(words[i], map.get(words[i]) + 1);`で回数を更新  
+ヒント３：最終結果は下記のようにして出力するとよい
+```
+Set<String> keys = map.keySet();
+        for (String key : keys) {
+            System.out.println(key + "\t" +  map.get(key));
+        }
+```

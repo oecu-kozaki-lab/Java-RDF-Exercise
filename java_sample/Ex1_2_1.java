@@ -1,7 +1,7 @@
 public class Ex1_2_1 {
     public static void main(String[] args) {
         //検索対象の文字列の定義
-        String data = "A LONG TIME AGO IN A GALAXY FAR, FAR AWAY . . . .";
+        String data = "KNOWLEDGE IS IMPORTANT. SHARING KNOWLEDGE CREATES NEW KNOWLEDGE.";
 
         int index = 0;  //何文字目に見つかったか？
         int count = 0;  //見つかった回数

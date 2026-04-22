@@ -1,7 +1,7 @@
 # Javaプログラミングの基礎
 参考サイト
 - [Java入門](https://www.javadrive.jp/start/)
-- [【2025】エクリプス（Eclipse）を使ったJava開発の始め方！](https://ai-kenkyujo.com/programming/language/eclipse-java/)
+- [【2026】VSCodeでJava開発する方法！環境構築や拡張機能も解説](https://ai-kenkyujo.com/programming/language/java/vscode-2/)
   
 ## 演習課題1-1.　Javaの開発環境と設定
 ### (0) VS Code(Visual Studio Code)のJava拡張機能のセットアップ  
@@ -43,14 +43,14 @@ public class Ex1_1_1 {
 
 ## 演習課題1-2.　Stringクラスを用いた文字列処理
 ### (1) 文字列の検索
-「A LONG TIME AGO IN A GALAXY FAR, FAR AWAY . . . .」という文字列に，
-「A」の文字が何回出現するかを数え，その数を出力するプログラムを書きなさい．  
+「KNOWLEDGE IS IMPORTANT. SHARING KNOWLEDGE CREATES NEW KNOWLEDGE.」という文字列に，
+「KNOWLEDGE」という単語が何回出現するかを数え，その数を出力するプログラムを書きなさい．  
 1. 「Ex1_2_1」というクラスを新規で追加し「Ex1_2_1.java」というファイルを作成
 2. 下記のヒントを参考にプログラムを作成する
 
-ヒント１：処理対象の文字列は`String data = "A LONG TIME AGO IN A GALAXY FAR, FAR AWAY . . . .";`といった変数で定義する  
-ヒント２：**String.indexOf("A")** を使うと，"A"が何文字目に出現するかを得られる．  
-ヒント３：**String.indexOf("A", n)** とすると， **n 文字目以降** で，為"A"が何文字目に出現するかを得られる．  
+ヒント１：処理対象の文字列は`String data = "KNOWLEDGE IS IMPORTANT. SHARING KNOWLEDGE CREATES NEW KNOWLEDGE.";`といった変数で定義する  
+ヒント２：**String.indexOf("KNOWLEDGE")** を使うと，"KNOWLEDGE"が何文字目に出現するかを得られる．  
+ヒント３：**String.indexOf("KNOWLEDGE", n)** とすると， **n 文字目以降** で，為"FAR"が何文字目に出現するかを得られる．  
 （[参考サイト](https://www.javadrive.jp/start/string/index18.html)）
 
 ### (2) 文字列の分割

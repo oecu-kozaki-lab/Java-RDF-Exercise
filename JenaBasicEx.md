@@ -2,21 +2,95 @@
 
 ## 演習課題2-1.　Jenaのセットアップ
 ### (1) Apache Jenaのダウンロード・利用のための設定
-1. [https://jena.apache.org/](https://jena.apache.org/) の *Download>Apache Jena Binary Distributions>
-Apache Jena Commands* から **apache-jena-5.X.X.zip** (X.Xはバージョン番号)をダウンロード
-2. ダウンロードしたZIPファイルを解凍するとできる **「libフォルダ」** を，Eclipseのプロジェクトの下にコピーする  
-※Eclipse上のプロジェクトに「ドラッグ＆ドロップ」するとコピーできる（ダイアログで「ファイルおよびフォルダをコピー」を選択）
-3. Eclipseの「パッケージエクスプローラー」でプロジェクトを *右クリック＞ビルド・パス＞ビルド・パス* の構成を実行  
-表示されるダイアログで「ライブラリ」を選択し，「クラスパス」を選択した状態で【JARの追加】
-新しく表示されるダイアログから「編集中のプロジェクト名の階層」の下にある「libフォルダ」を選択し，そこの表示される「xxx.jar」というファイルをすべて選択（SHIFTキーを押しながら一番上と下を選択）して【OK】
-残ったダイアログを【適用して閉じる】
+ここでは，VSCodeでJavaの開発環境が設定済みであるものとして，Apache Jenaのライブラリをプロジェクトに追加する．  
+Mavenは使用せず，必要なJARファイル一式をプロジェクト内の `lib` フォルダに置く方法で設定する．
+
+1. Apache Jenaのダウンロードページを開く  
+   [https://jena.apache.org/download/](https://jena.apache.org/download/)
+
+2. 「Apache Jena Binary Distributions」にある **apache-jena-X.Y.Z.zip** をダウンロードする  
+   `X.Y.Z` はバージョン番号である．  
+   ※Jenaのバージョンによって必要なJavaのバージョンが異なるため，授業環境で指定されたJavaのバージョンに対応するJenaを利用すること．
+
+3. ダウンロードしたZIPファイルを展開する
+
+4. 展開してできたフォルダの中にある **libフォルダ** を開き，その中の `*.jar` ファイルをすべてコピーする
+
+5. VSCodeで使用するJavaプロジェクトを作成する  
+   ここでは，Java用のフォルダを1つ作成し，そのフォルダをVSCodeで開いて作業する．
+
+   1. 任意の場所に，演習用のフォルダを作成する  
+      例：`JenaBasicEx`
+   2. VSCodeを起動し，メニューから「ファイル」＞「フォルダーを開く...」を選択する
+   3. 作成した `JenaBasicEx` フォルダを選択して開く
+   4. VSCodeのエクスプローラーで，プロジェクト直下に `src` フォルダを作成する
+   5. `src` フォルダの中に，Javaプログラムを保存する  
+      例：`Main.java`
+
+   Java拡張機能のコマンドを使う場合は，コマンドパレットから `Java: Create Java Project...` を実行し，ビルドツールを使わないプロジェクトを作成してもよい．  
+   Mavenは使用しないため，Mavenプロジェクトは選択しないこと．
+
+6. Javaプロジェクトの直下に **libフォルダ** を作成し，コピーしたJARファイルをすべて貼り付ける  
+   プロジェクトの構成例：
+
+   ```text
+   JenaBasicEx/
+   ├─ .vscode/
+   │  └─ settings.json
+   ├─ lib/
+   │  ├─ jena-core-....jar
+   │  ├─ jena-arq-....jar
+   │  ├─ ...
+   │  └─ その他のjarファイル
+   └─ src/
+      └─ Main.java
+   ```
+
+7. プロジェクト内に `.vscode/settings.json` を作成し，次の内容を記述する  
+   すでに `settings.json` がある場合は，既存の設定に `java.project.referencedLibraries` を追加する．
+
+   ```json
+   {
+     "java.project.referencedLibraries": [
+       "lib/**/*.jar"
+     ]
+   }
+   ```
+
+   この設定により，`lib` フォルダ内のすべてのJARファイルがJavaのクラスパスに追加される．
+
+8. VSCodeを再読み込みする  
+   設定後，次のいずれかを行う．
+
+   - VSCodeを再起動する
+   - コマンドパレットから `Java: Clean Java Language Server Workspace` を実行する
+
+9. 次のようなプログラムを作成し，エラーが出ずに実行できれば設定は完了である
+
+   ```java
+   import org.apache.jena.rdf.model.Model;
+   import org.apache.jena.rdf.model.ModelFactory;
+
+   public class Main {
+       public static void main(String[] args) {
+           Model model = ModelFactory.createDefaultModel();
+           System.out.println("Jena model was created.");
+       }
+   }
+   ```
+
+   実行結果として次のように表示されればよい．
+
+   ```text
+   Jena model was created.
+   ```
 
 ### (2) サンプルプログラム「readRDF.java」の実行
 サンプルプログラム「[readRDF.java](jena_sample/src/readRDF.java)」の実行して動作を確かめなさい．
 1. [readRDF.java](jena_sample/src/readRDF.java)をWebブラウザで開き（別タブで開くとよい），「Download raw file」でソースコードをダウンロードする
-2. ダウンロードしたファイルを，プロジェクトの「srcフォルダ」にコピー（Eclipseへのドラッグ＆ドロップでコピー可）
-3. プロジェクト選択し *メニューからファイル＞新規* で２つのフォルダ「input」と「output」を追加
-4. 「[DancingMen.ttl](jena_sample/input/DancingMen.ttl)」をダウンロードし，プロジェクトの「inputフォルダ」にコピー
+2. ダウンロードしたファイルを，プロジェクトの「srcフォルダ」にコピーする
+3. VSCodeのエクスプローラーでプロジェクト直下に２つのフォルダ「input」と「output」を追加する
+4. 「[DancingMen.ttl](jena_sample/input/DancingMen.ttl)」をダウンロードし，プロジェクトの「inputフォルダ」にコピーする
 5. プロジェクトにコピーした「readRDF.java」を実行し，「outputフォルダ」に処理結果のファイルが出力されることを確認する
 6. 「readRDF.java」のソースコードを確認し，一部分を修正して再度実行するなど，いろいろ試してみる
 
@@ -37,4 +111,3 @@ Apache Jena Commands* から **apache-jena-5.X.X.zip** (X.Xはバージョン番
 （エラー原因の詳細と対応方法については，[こちらの記事](https://qiita.com/koujikozaki/items/fba35bf469dc0331128b)を参照してください．）  
 
 (2) (1)を修正して，自分が作ったクエリでの検索を実行しなさい．
-

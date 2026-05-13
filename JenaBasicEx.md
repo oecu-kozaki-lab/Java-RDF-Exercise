@@ -84,6 +84,46 @@ Mavenは使用せず，必要なJARファイル一式をプロジェクト内の
    ```text
    Jena model was created.
    ```
+### 参考： settings.json の設定例
+
+`settings.json` では，
+外部ライブラリ（JARファイル）の設定と，
+VS Codeで使用するJDK（JVM）の設定を同時に記述できる．  
+※PCに複数のJDKが入っており，適切なバージョンで実行させたいときは，この設定を使用するとよい．
+
+例：
+
+```json
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ],
+
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-21",
+            "path": "C:/Program Files/Java/jdk-21",
+            "default": true
+        }
+    ]
+}
+```
+
+#### 各設定の説明
+
+- `"java.project.referencedLibraries"`  
+  `lib` フォルダ内の JAR ファイルを外部ライブラリとして利用する設定．
+
+- `"java.configuration.runtimes"`  
+  VS Codeで使用するJDKを指定する設定．
+
+- `"path"`  
+  JDKフォルダを指定する．  
+  （`bin` フォルダではなく，その1つ上のフォルダ）
+
+- `"default": true`  
+  標準で使用するJDKとして設定する．
+
 
 ### (2) サンプルプログラム「readRDF.java」の実行
 サンプルプログラム「[readRDF.java](jena_sample/src/readRDF.java)」の実行して動作を確かめなさい．
@@ -95,7 +135,6 @@ Mavenは使用せず，必要なJARファイル一式をプロジェクト内の
 6. 「readRDF.java」のソースコードを確認し，一部分を修正して再度実行するなど，いろいろ試してみる
 
 ### 参考：launch.json の作成
-
 Javaプログラム実行時の設定（起動対象とするクラス，JVM引数など）を行うには，  
 `.vscode/launch.json` を作成する．
 

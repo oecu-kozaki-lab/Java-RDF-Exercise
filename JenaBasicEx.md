@@ -94,6 +94,31 @@ Mavenは使用せず，必要なJARファイル一式をプロジェクト内の
 5. プロジェクトにコピーした「readRDF.java」を実行し，「outputフォルダ」に処理結果のファイルが出力されることを確認する
 6. 「readRDF.java」のソースコードを確認し，一部分を修正して再度実行するなど，いろいろ試してみる
 
+### 参考：launch.json の作成
+
+Javaプログラム実行時の設定（起動対象とするクラス，JVM引数など）を行うには，  
+`.vscode/launch.json` を作成する．
+
+内容：
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main"
+        }
+    ]
+}
+```
+
+- `"version"` は launch.json の設定形式バージョンを表す．
+- `"mainClass"` には実行するクラス名を指定する．
+- JVM引数を追加する場合は `"vmArgs"` を追加する．
+
 ## 演習課題2-2.　RDFの検索【読み込んだファイルを対象にする】
 (1) [searchRDF.java](jena_sample/src/searchRDF.java)を実行して，JenaのAPIを使った検索の方法を確認しなさい．
 

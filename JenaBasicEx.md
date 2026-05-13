@@ -10,7 +10,7 @@ Mavenは使用せず，必要なJARファイル一式をプロジェクト内の
 
 2. 「Apache Jena Binary Distributions」にある **apache-jena-X.Y.Z.zip** をダウンロードする  
    `X.Y.Z` はバージョン番号である．  
-   ※Jenaのバージョンによって必要なJavaのバージョンが異なるため，授業環境で指定されたJavaのバージョンに対応するJenaを利用すること．
+   ※Jenaのバージョンによって必要なJavaのバージョンが異なるが，基本的に，最新バージョンのJenaを利用すること．
 
 3. ダウンロードしたZIPファイルを展開する
 
@@ -109,5 +109,29 @@ Mavenは使用せず，必要なJARファイル一式をプロジェクト内の
 
 ※このサンプルプログラムで使用しているWikidataのSPARQLエンドポイントを使用すると，403エラーが発生する現象が見られたため（現時点では解消済み），プログラムに対処方法のコメントを追記しました．  
 （エラー原因の詳細と対応方法については，[こちらの記事](https://qiita.com/koujikozaki/items/fba35bf469dc0331128b)を参照してください．）  
+
+※有線LANでネットワークに接続している場合は，VSCodeのJavaプログラム実行時のプロキシ設定（JVM引数など）を行うために，以下の内容の`.vscode/launch.json` を作成する．
+
+内容：
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+
+            "vmArgs": "-DproxySet=true -DproxyHost=wwwproxy.osakac.ac.jp -DproxyPort=8080"
+        }
+    ]
+}
+```
+
+- `"version"` は launch.json の設定形式バージョンを表す．
+- `"mainClass"` には実行するクラス名を指定する．
+- JVM引数を追加する場合は `"vmArgs"` を追加する．
 
 (2) (1)を修正して，自分が作ったクエリでの検索を実行しなさい．

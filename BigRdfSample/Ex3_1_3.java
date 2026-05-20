@@ -15,23 +15,26 @@ import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.sparql.exec.http.QueryExecutionHTTP;
 
-public class Ex3_1_1 {
+public class Ex3_1_3 {
 	public static void main(String[] args) {
 
 		String queryStr = """
-						PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-						select ?s
+				PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+				PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+				select ?s ?p ?o
 				where{
 				?s rdfs:label "#PREF#"@ja.
+				?s wdt:P429 ?code.
+				?s ?p ?o.
 				}
 				""";
 		String ua = "Example-Agent/1.0 (https://www.example.com; xxx@example.com)";
-
+		
 		//String endpoint = "https://query.wikidata.org/sparql";
 		// Wkidataのエンドポイントでは、プログラムからのアクセス制限が厳しい場合があるので、
 		// 下記のWikidataのコピーエンドポイントを使う
 		String endpoint = "http://ie-expt.kzlab.osakac.ac.jp:8890/sparql/";
-
+		
 		// Fileの入出力など「エラーが発生する可能性」がある場合，
 		// try{．．．．}catch(．．){．．．}というエラー処理の構文を使う必要がある
 		try {

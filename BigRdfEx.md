@@ -1,4 +1,10 @@
 # 大規模なRDFの扱い
+## 注意事項
+この課題では *Wikidata* および *DBpedia Japanese* のSPARQLエンドポイントを使用しますが，公式のエンドポイントでは *「プログラムからのアクセスに対する利用制限」* がかかる場合があるため，それぞれ以下のエンドポイントを使用してください．
+- Wikidata　http://ie-expt.kzlab.osakac.ac.jp:8890/sparql/
+- DBpedia Japanese http://kozaki-lab.osakac.ac.jp/agraph/DBpedia2016_RDF  
+※これらは，それぞれのDBの「一部」をコピーして別のRDF-DBで仮運用しているものです．
+
 ## 演習課題3-1.　プログラムを用いたSPARQLクエリ生成
 (1) [pref-ja.txt](pref-ja.txt) を読み込み，
 Wikidataから，各キーワード（都道府県名）とラベルが一致するリソースのIRIを取得するプログラムを作成しなさい．
@@ -18,30 +24,12 @@ where{
     
 (3)(2)のプログラムを改良し，各リソースのIRIに加えて，「各リソースを主語とする全トリプル」を取得するプログラムを作りなさい．
 
-## (旧)演習課題3-1.　プログラムを用いたSPARQLクエリ生成
-(1) [pref.txt](https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/pref.txt) を読み込み，
-Wikidataから，各キーワード（都道府県名）とラベルが一致するリソースのIRIを取得するプログラムを作成しなさい．
-  
-ヒント：例えば「大阪」の場合は下記のようなクエリで取得できる．このようなクエリを自動生成してJenaで結果を取得するプログラムを作ればよい．
-```
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-select ?s
-where{
-?s rdfs:label "大阪"@ja.
-}
-```
-(2)(1)のプログラムを改良し，都道府県に相当するリソースのIRIのみを取得するプログラムを作りなさい．  
-  
-ヒント２：上記のクエリでは，同名の別リソースも結果に含まれる．それらを除外するにはクエリの工夫（何らかの条件を追加する）が必要．  
-  
-(3)(2)のプログラムを改良し，各リソースのIRIに加えて，日本語および英語のラベルを取得するプログラムを作りなさい．
-
 ## 演習課題3-2.　複数のSPARQLエンドポイントを統合した検索
 以下の手順で，WikidataとDBpedia Japaneseを統合した検索を行うプログラムを作成しなさい．
 
 (1)WikidataのSPARQLエンドポイントから「国の『日本語ラベル』の一覧」を取得し，ファイルに保存するプログラムを作成しなさい．
 
-(2)(1)のプログラムで保存したファイルから「国名」を読み込んで，DBpedia JapaneseのSPARQLエンドポイント(https://ja.dbpedia.org/sparql) から，「その国のDBpedia Japanese上でのIRI」を取得し，
+(2)(1)のプログラムで保存したファイルから「国名」を読み込んで，DBpedia JapaneseのSPARQLエンドポイント(※上述の「注意事項」を参照) から，「その国のDBpedia Japanese上でのIRI」を取得し，
 「そのIRIを主語とするすべてのトリプル」を取得するプログラムを作成しなさい．
 
 ## 演習課題3-3.　N-Triple形式のRDFの処理

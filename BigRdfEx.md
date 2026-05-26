@@ -78,8 +78,30 @@ public static String decodeFromUnicode(String input) {
 }
 ```
 
-(3)[Wikidataのダンプ公開ページ](https://www.wikidata.org/wiki/Wikidata:Database_download/ja)から，N-Triple形式のダンプファイルのダウンロード方法を確認しなさい．  
+(3)[Wikidataのダンプ公開ページ](https://www.wikidata.org/wiki/Wikidata:Database_download/ja)から，N-Triple形式のダンプファイルのダウンロード方法を確認しなさい．
+
+
 - 上記のページにある「RDFダンプ」を確認する
 - N-Triple形式のダンプには， **all** と **truthyダンプ** があるので，それぞれの最新版のダウンロード先を確認する
 - ※ファイルサイズが非常に大きいので，実際のダウンロードは，必要な時に外部SDDなど環境を整えてから行うこと
 
+## 演習課題3-4. 取得したRDFデータのローカル検索
+演習課題3-1または3-3で取得したRDFデータをJenaのModelに読み込み，SPARQLを用いてローカル環境で検索するプログラムを作成しなさい．
+
+(1) Q1490.nt（東京都）をJenaのModelに読み込み，`rdfs:label` のうち，日本語ラベルのみを取得して表示しなさい．
+
+ヒント：言語タグが日本語であるリテラルは，SPARQLの `LANG()` 関数を用いて判定できる．
+
+```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?label
+WHERE {
+  ?s rdfs:label ?label .
+  FILTER(LANG(?label) = "ja")
+}
+```
+
+(2) (1)のプログラムを改良し，`rdfs:label` と `skos:altLabel` の両方について，日本語のラベル・別名を取得して表示しなさい．
+
+(3) 任意のWikidataエンティティのN-Tripleファイルを1つダウンロードし，同様に日本語ラベルと別名を取得して表示しなさい．

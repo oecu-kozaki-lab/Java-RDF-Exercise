@@ -27,7 +27,8 @@ where{
 ## 演習課題3-2.　複数のSPARQLエンドポイントを統合した検索
 以下の手順で，WikidataとDBpedia Japaneseを統合した検索を行うプログラムを作成しなさい．
 
-(1)WikidataのSPARQLエンドポイントから「国の『日本語ラベル』の一覧」を取得し，ファイルに保存するプログラムを作成しなさい．
+(1)WikidataのSPARQLエンドポイントから「国の『日本語ラベル』の一覧」を取得し，ファイルに保存するプログラムを作成しなさい．  
+ヒント：[演習課題2-3](https://github.com/oecu-kozaki-lab/Java-RDF-Exercise/blob/main/JenaBasicEx.md#%E6%BC%94%E7%BF%92%E8%AA%B2%E9%A1%8C2-3rdf%E3%81%AE%E6%A4%9C%E7%B4%A2sparql%E3%82%A8%E3%83%B3%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%92%E5%AF%BE%E8%B1%A1%E3%81%AB%E3%81%99%E3%82%8B)を参考にして，「国の『日本語ラベル』の一覧」を取得するSPARQLクエリを実行し結果をファイルに保存するプログラムを作ればよい．
 
 (2)(1)のプログラムで保存したファイルから「国名」を読み込んで，DBpedia JapaneseのSPARQLエンドポイント(※上述の「注意事項」を参照) から，「その国のDBpedia Japanese上でのIRI」を取得し，
 「そのIRIを主語とするすべてのトリプル」を取得するプログラムを作成しなさい．

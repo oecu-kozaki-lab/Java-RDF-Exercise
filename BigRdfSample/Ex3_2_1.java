@@ -45,7 +45,7 @@ public class Ex3_2_1 {
 				ResultSet rs = qExec.execSelect();
 
 				// 出力用のファイルの作成
-				FileOutputStream out = new FileOutputStream("contry.txt");
+				FileOutputStream out = new FileOutputStream("country.txt");
 
 				// 結果の出力 ※以下のどれか「１つ」を選ぶ（複数選ぶと，2つ目以降の結果が「空」になる）
 				// ResultSetFormatter.out(out, rs, query); //表形式で，ファイルに

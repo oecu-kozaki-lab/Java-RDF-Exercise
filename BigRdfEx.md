@@ -95,14 +95,37 @@ public static String decodeFromUnicode(String input) {
 
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-SELECT ?label
+SELECT ?p ?label
 WHERE {
-  ?s rdfs:label ?label .
+  ?s ?p ?label .
+  FILTER((?p=rdfs:label)||(?p=skos:altLabel))
   FILTER(LANG(?label) = "ja")
 }
 ```
 
 (2) (1)のプログラムを改良し，`rdfs:label` と `skos:altLabel` の両方について，日本語のラベル・別名を取得して表示しなさい．
+
+ヒント：`rdfs:label` と `skos:altLabel` を取得するには以下のようなクエリを用いるとよい．
+```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?label
+WHERE {
+  ?s rdfs:label|skos:altLabel ?label .
+  FILTER(LANG(?label) = "ja")
+}LIMIT 10
+```
+`rdfs:label` と `skos:altLabel` を区別して取得したいときは下記のクエリを用いる．
+```sparql
+SELECT ?s ?p ?label
+WHERE {
+  ?s ?p ?label .
+  FILTER((?p=rdfs:label)||(?p=skos:altLabel))
+  FILTER(LANG(?label) = "ja")
+}
+```
 
 (3) 任意のWikidataエンティティのN-Tripleファイルを1つダウンロードし，同様に日本語ラベルと別名を取得して表示しなさい．

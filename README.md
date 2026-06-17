@@ -7,3 +7,4 @@ JavaによるRDFを処理するプログラムの演習課題です．
 
 ## [3. 大規模なRDFファイルの処理](BigRdfEx.md)
 
+## [4.Mavenの利用](JavaMavenEx.md)

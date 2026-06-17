@@ -51,7 +51,7 @@ echo %JAVA_HOME%
 C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot
 ```
 
-何も表示されない場合は、`JAVA_HOME` が設定されていませんので、[こちらの手順](#付録：JAVA_HOMEの設定を確認する)に沿って設定してください。
+何も表示されない場合は、`JAVA_HOME` が設定されていませんので、[こちらの手順](#付録java_home-の設定を確認する)に沿って設定してください。
 
 ---
 

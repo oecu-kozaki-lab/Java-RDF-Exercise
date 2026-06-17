@@ -24,7 +24,8 @@
 
 # 演習1　Mavenプロジェクトの作成
 
-## 1. Javaのバージョンを確認する
+## 1. Javaの設定を
+### バージョンを確認する
 
 開いているファイルやフォルダがあれば，一度，閉じておく．
 
@@ -35,6 +36,22 @@ java -version
 ```
 
 Javaのバージョンが表示されることを確認してください。
+
+### JAVA_HOMEの確認
+
+JavaプログラムやMavenを利用するには、環境変数 **`JAVA_HOME`** が正しく設定されている必要があります。
+
+Windows の **コマンドプロンプト** を開き、次のコマンドを実行します。
+```cmd
+echo %JAVA_HOME%
+```
+正しく設定されている場合は、次のようにJDKのインストール先が表示されます。
+
+```text
+C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot
+```
+
+何も表示されない場合は、`JAVA_HOME` が設定されていませんので、[こちらの手順](#付録：JAVA_HOMEの設定を確認する)に沿って設定してください。
 
 ---
 
@@ -406,10 +423,136 @@ Mavenを利用することで、ライブラリを手動で管理する必要が
 
 ---
 
-# 発展課題
+以下のような説明にすると、学生向けに分かりやすくまとまります。
 
-* DBpediaへのSPARQLアクセス
-* Apache Fusekiへの接続
-* RDFファイルの読み込み・保存
-* SPARQL結果のCSV出力
-* OpenAI APIやLangChain4jと組み合わせた知識グラフアプリケーションの開発
+---
+
+# 付録：JAVA_HOME の設定を確認する
+
+JavaプログラムやMavenを利用するには、環境変数 **`JAVA_HOME`** が正しく設定されている必要があります。
+
+## 1. JAVA_HOME の設定を確認する
+
+Windows の **コマンドプロンプト** または **PowerShell** を開き、次のコマンドを実行します。
+
+### コマンドプロンプト
+
+```cmd
+echo %JAVA_HOME%
+```
+
+### PowerShell
+
+```powershell
+echo $env:JAVA_HOME
+```
+
+設定されている場合は、次のようにJDKのインストール先が表示されます。
+
+```text
+C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot
+```
+
+何も表示されない場合は、`JAVA_HOME` が設定されていません。
+
+---
+
+## 2. JAVA_HOME を設定する
+
+### (1) システムの設定を開く
+
+1. スタートメニューで **「環境変数」** と検索する。
+2. **「システム環境変数の編集」** を開く。
+3. **「環境変数(N)...」** をクリックする。
+
+---
+
+### (2) JAVA_HOME を追加する
+
+「ユーザー環境変数」または「システム環境変数」で **[新規]** をクリックし、以下を設定します。
+
+| 項目  | 設定値            |
+| --- | -------------- |
+| 変数名 | `JAVA_HOME`    |
+| 変数値 | JDKのインストールフォルダ |
+
+例
+
+```text
+C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot
+```
+
+---
+
+### (3) Path に追加する
+
+環境変数 **Path** を編集し、次の項目を追加します。
+
+```text
+%JAVA_HOME%\bin
+```
+
+すでに登録されている場合は追加する必要はありません。
+
+---
+
+### (4) 設定を反映する
+
+設定後は、
+
+* コマンドプロンプト
+* PowerShell
+* VS Code
+
+を一度終了し、再度起動してください。
+
+---
+
+## 3. 設定を確認する
+
+以下のコマンドを実行します。
+
+```cmd
+java -version
+```
+
+および
+
+```cmd
+javac -version
+```
+
+JDKのバージョンが表示されれば設定は完了です。
+
+---
+
+## 参考：Eclipse Temurin のインストール先
+
+Eclipse Temurin を標準設定でインストールした場合、JDKは通常次のフォルダにインストールされます。
+
+```text
+C:\Program Files\Eclipse Adoptium\
+```
+
+その中に、インストールしたJDKのバージョンごとのフォルダがあります。
+
+例
+
+```text
+C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot
+```
+
+```text
+C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot
+```
+
+`JAVA_HOME` には、この **`jdk-...-hotspot` フォルダ** を指定してください（`bin` フォルダではありません）。
+
+---
+
+### 注意
+
+* `JAVA_HOME` は **JDKのフォルダ** を指定します。
+* `Path` には **`%JAVA_HOME%\bin`** を登録します。
+* JDKを複数インストールしている場合は、演習で使用するバージョンを指定してください。例えば、本演習では **JDK 25 (Eclipse Temurin)** を使用します。
+

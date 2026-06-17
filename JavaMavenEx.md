@@ -457,7 +457,7 @@ C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot
 
 ---
 
-## 2. JAVA_HOME を設定する
+##　2.JAVA_HOME を設定する
 
 ### (1) システムの設定を開く
 

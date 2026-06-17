@@ -180,10 +180,153 @@ PDFの内容について質問するプロンプトに変更してみる。
 
 `input.txt` または `image.png` を別の内容に変更し，結果を確認する。
 
+---
+
 # 演習課題5-3：JenaとLLMの連携
 
-この課題では，Javaプログラムから Jena を用いて Wikidata にSPARQLクエリを発行し，取得した検索結果を LLM に渡して，自然な文章として説明させるプログラムを作成する。
-※別途、詳細を掲載予定 
+## 課題の目的
+
+この課題では、**Apache Jena** を用いて **Wikidata** にSPARQLクエリを発行し、取得した検索結果を **LLM** に渡して自然な文章を生成するプログラムを作成する。
+
+これにより、
+
+* 知識グラフの検索
+* JavaによるSPARQL実行
+* LLMとの連携
+
+という一連の処理を体験する。
+
+---
+
+## 課題内容
+
+**大阪電気通信大学を主語とするトリプルをWikidataから取得し、その検索結果をLLMで説明文に変換するプログラムを作成しなさい。**
+
+---
+
+## プログラムの処理
+
+### 1. WikidataにSPARQLクエリを送信する
+
+Jenaを用いて、Wikidata Query ServiceにSPARQLクエリを送信する。
+
+今回は、
+
+> **大阪電気通信大学を主語とするトリプル**
+
+を取得する。
+
+取得したURIについては、日本語ラベルを取得すること。
+
+---
+
+### 使用するSPARQLクエリ
+
+```sparql
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+
+SELECT ?propertyLabel ?valueLabel
+WHERE {
+
+  wd:Q7105556 ?p ?value .
+
+  ?property wikibase:directClaim ?p .
+
+  SERVICE wikibase:label {
+      bd:serviceParam wikibase:language "ja,en".
+  }
+}
+ORDER BY ?propertyLabel
+```
+
+このクエリでは、
+
+**大阪電気通信大学（Q7105556）**
+
+について、
+
+```
+大阪電気通信大学
+    ├── 所在地 → 大阪府
+    ├── 設立年 → 1941
+    ├── 公式Webサイト → …
+    ├── 学生数 → …
+```
+
+のような情報を取得できる。
+
+---
+
+### 2. 検索結果を文字列にまとめる
+
+取得した検索結果を、LLMへ入力しやすいように整形する。
+
+例
+
+```
+所在地：大阪府
+設立：1941年
+公式ウェブサイト：https://...
+学生数：...
+...
+```
+
+---
+
+### 3. LLMへ入力する
+
+検索結果をそのまま表示するのではなく、LLMに次のような指示を与える。
+
+#### プロンプト例
+
+```
+以下はWikidataから取得した大阪電気通信大学の情報です。
+
+この情報を基に、
+高校生向けに大阪電気通信大学を紹介する文章を200文字程度で作成してください。
+
+【検索結果】
+...
+```
+
+---
+
+### 4. 出力結果を表示する
+
+LLMが生成した紹介文をコンソールへ表示する。
+
+---
+
+# ヒント1：pom.xmlにJenaを追加する
+
+`pom.xml` の `<dependencies>` にApache Jenaを追加する。
+
+```xml
+<dependency>
+    <groupId>org.apache.jena</groupId>
+    <artifactId>apache-jena-libs</artifactId>
+    <version>6.1.0</version>
+    <type>pom</type>
+</dependency>
+```
+
+---
+
+# ヒント2：検索結果をLLMへ渡す
+
+取得した結果は `StringBuilder` を使って1つの文字列にまとめる。
+
+例
+
+```
+所在地：大阪府
+設立：1941年
+学生数：...
+```
+
+この文字列を、これまでのサンプルと同様にLLMへ入力する。
 
 ---
 

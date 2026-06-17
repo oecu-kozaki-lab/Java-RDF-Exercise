@@ -1,4 +1,4 @@
-# 演習：VS Codeを用いたMavenプロジェクトの作成とApache Jenaの利用
+# 演習4-1：VS Codeを用いたMavenプロジェクトの作成とApache Jenaの利用
 
 ## 1. 演習の目的
 
@@ -26,6 +26,8 @@
 
 ## 1. Javaのバージョンを確認する
 
+開いているファイルやフォルダがあれば，一度，閉じておく．
+
 VS Codeのターミナルで次のコマンドを実行します。
 
 ```bash
@@ -50,10 +52,12 @@ Ctrl + Shift + P
 Java: Create Java Project
 ```
 
+以下、コマンドパレットで順次，選択します．
+
 ### Project Type
 
 ```text
-Maven
+Maven create from archetype
 ```
 
 ### Archetype
@@ -82,7 +86,22 @@ jp.kozaki.lab
 jena-demo
 ```
 
-保存先を指定すると、Mavenプロジェクトが作成されます。
+保存先を指定すると、VS CodeのコンソールでMavenプロジェクトの作成コマンドが実行されるので，
+```
+Define value for property 'version' 1.0-SNAPSHOT: :
+```
+や
+```
+Confirm properties configuration:
+groupId: jp.kozaki.lab
+artifactId: nena-demo
+version: 1.0-SNAPSHOT
+package: jp.kozaki.lab
+ Y: :
+```
+といった質問が表示されたら「Enter」を押す．
+
+**BUILD SUCCESS** と表示されたらするとプロジェクト作成が完了です．
 
 ---
 
@@ -242,52 +261,44 @@ Hello World!
 ```java
 package jp.kozaki.lab;
 
+import java.io.FileNotFoundException;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionHTTP;
 import org.apache.jena.query.QueryFactory;
-import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.ResultSetFormatter;
+import org.apache.jena.sparql.exec.http.QueryExecutionHTTP;
 
-public class App {
+public class searchRDFfromSPARQLendpoint {
 
-    public static void main(String[] args) {
+	static public void main(String[] args) throws FileNotFoundException {
 
-        String endpoint =
-                "https://query.wikidata.org/sparql";
+		// クエリの作成
+		String queryStr = """
+				PREFIX wd: <http://www.wikidata.org/entity/>
 
-        String sparql = """
-            SELECT ?person ?personLabel
-            WHERE {
-              ?person wdt:P31 wd:Q5 ;
-                      wdt:P106 wd:Q36180 .
+				select *
+				where{
+					wd:Q7105556 ?p ?o.
+				}LIMIT 100
+				""";
+		Query query = QueryFactory.create(queryStr);
 
-              SERVICE wikibase:label {
-                bd:serviceParam wikibase:language "ja,en".
-              }
-            }
-            LIMIT 10
-            """;
+		try (QueryExecution qExec = QueryExecutionHTTP.create()
+				.endpoint("https://query.wikidata.org/sparql")
+				.query(query)
+				.param("timeout", "10000")
+				.httpHeader("User-Agent", "Example-Agent/1.0 (https://www.example.com; xxx@example.com)")
+				.build()) {
 
-        Query query = QueryFactory.create(sparql);
+			ResultSet rs = qExec.execSelect();
 
-        try (QueryExecution qexec =
-                 QueryExecutionHTTP.service(endpoint, query)) {
+			// 結果の出力 ※以下のどれか「１つ」を選ぶ（複数選ぶと，2つ目以降の結果が「空」になる）
+			// ResultSetFormatter.out(System.out, rs, query); //表形式で，標準出力に
+			ResultSetFormatter.outputAsCSV(System.out, rs); // CSV形式で，標準出力に
 
-            ResultSet results = qexec.execSelect();
-
-            while (results.hasNext()) {
-
-                QuerySolution sol = results.next();
-
-                System.out.println(
-                    sol.get("personLabel")
-                    + " : "
-                    + sol.get("person")
-                );
-            }
-        }
-    }
+		}
+	}
 }
 ```
 
@@ -297,63 +308,19 @@ public class App {
 
 `App.java` を実行します。
 
-次のような結果が表示されれば成功です。
+次のような結果が表示されれば成功です（VS Codeのターミナルでは文字化けが発生する）。
 
 ```text
-夏目漱石 : http://www.wikidata.org/entity/...
-森鷗外 : http://www.wikidata.org/entity/...
+p,o
+http://schema.org/version,2474201553
+http://schema.org/dateModified,2026-03-21T13:12:34Z
+http://schema.org/description,Universitﾃ､t in Japan
+http://schema.org/description,ﾗ碩勉ﾗ燮泰ｨﾗ｡ﾗ燮俎・ﾗ泰燮､ﾗ
+http://schema.org/description,universitas di Jepang
+http://schema.org/description,universiteit in Japan
 ...
 ```
 
----
-
-# 確認課題
-
-## 課題1
-
-取得件数を変更してみましょう。
-
-```sparql
-LIMIT 10
-```
-
-↓
-
-```sparql
-LIMIT 20
-```
-
----
-
-## 課題2
-
-作家以外の職業を検索してみましょう。
-
-例
-
-* 学者
-* 政治家
-* スポーツ選手
-
----
-
-## 課題3
-
-日本人のみ取得する条件を追加してみましょう。
-
-ヒント
-
-```sparql
-wdt:P27
-```
-
-は国籍を表します。
-
----
-
-## 課題4
-
-興味のある人物や組織について検索するSPARQLクエリを作成してみましょう。
 
 ---
 

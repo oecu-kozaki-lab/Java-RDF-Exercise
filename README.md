@@ -10,3 +10,5 @@ JavaによるRDFを処理するプログラムの演習課題です．
 ## [4. Mavenの利用](JavaMavenEx.md)
 
 ## [5. Javaを用いたLLMの処理](JavaLlmEx.md)
+
+## [6. GitHub Copilotを利用したプログラミング支援](CopilotEx.md)

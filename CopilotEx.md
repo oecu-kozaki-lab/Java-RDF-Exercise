@@ -21,7 +21,7 @@
 
 別途配布する
 
-**「GitHub Copilotの設定.pdf」**
+**[「GitHub Copilotの設定.pdf」](https://drive.google.com/file/d/1Bmurp5vcakcIA4osSyEbgUoLIhZvLALA/view?usp=drive_link)**
 
 を参考に、GitHub Copilotの設定を行うこと。
 

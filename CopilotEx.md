@@ -37,9 +37,13 @@
 
 > https://github.com/oecu-kozaki-lab/java-llm-samples
 
-をGitHub Desktopを用いてCloneすること。
+にある
 
-Clone後、VS Codeでプロジェクトを開くこと。
+langchain4j-samples/src/main/java/jp/kozaki/lab/**langchain4j_Chat.java**
+
+を使用する．
+
+GitHub Desktopを用いてCloneした（もしくは、ZIPでダウンロードし展開した）フォルダを、VS Codeでプロジェクトを開くこと。
 
 ---
 

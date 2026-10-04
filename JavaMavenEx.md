@@ -457,13 +457,13 @@ C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot
 
 ---
 
-##　2.JAVA_HOME を設定する
+## 2.JAVA_HOME を設定する
 
 ### (1) システムの設定を開く
 
 1. スタートメニューで **「環境変数」** と検索する。
 2. **「システム環境変数の編集」** を開く。
-3. **「環境変数(N)...」** をクリックする。
+3. **「新規(N)...」** をクリックする。
 
 ---
 
@@ -474,14 +474,14 @@ C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot
 | 項目  | 設定値            |
 | --- | -------------- |
 | 変数名 | `JAVA_HOME`    |
-| 変数値 | JDKのインストールフォルダ |
+| 変数値 | JDKのインストールフォルダ（※） |
 
+※Javaのプログラム一式（binフォルダなどが含まれるフォルダを指定する  
 例
 
 ```text
 C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot
 ```
-
 ---
 
 ### (3) Path に追加する
